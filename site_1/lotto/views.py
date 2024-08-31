@@ -1,12 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from lotto.models import GuessNumbers
 
+from .models import GuessNumbers
 
 # Create your views here.
 def index(request): # user의 요청
     # params 1. request 2. user 에게 전달할 html 3. {} dict (결과를 html 에 전달해서 줘야하는 값들)
-    return render(request, 'lotto/default.html', {})
+    # return render(request, 'lotto/default.html', {})
+
+    # request.POST -> dict
+    # - dict의 key == input tag의 name 값
+    # - dict의 value == input tag의 value 값 ( == user 의 입력 값)
+    # request.POST['fname']
+
+    lottos = GuessNumbers.objects.all()
+
+    return render(request, 'lotto/default.html', {'lottos': lottos})
 
 
 def hello(requset):
