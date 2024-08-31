@@ -1,0 +1,29 @@
+<!DOCKTYPE html>
+
+{# django template tag#}
+{#static 파일 전체를 로드#}
+{% load static %}
+
+<html lang="ko">
+<head>
+    <title>My Little Lotto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+{#    static 명령어는 특정한 static 파일에 url을 자동으로 만들어서 넣어줌#}
+{#    아래에 있는 'css/lotto.css 는 지금 있는 위치가 아니라 나중에 collectstatic 을 실행해서 생기는 위치를 의미함#}
+    <link rel='stylesheet' href="{%  static 'css/lotto.css' %}">
+</head>
+
+<body>
+    <div class="page-header">
+        <h1>Selected Lotto Numbers</h1>
+    </div>
+    <div class="container lotto">
+        <h2>Good luck!</h2>
+        <p> last updated:2030/12/31</p>
+        <p> 1, 10, 19, 15, 20, 35</p>
+    </div>
+</body>
+</html>
