@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .forms import PostForm
 from .models import GuessNumbers
 
 # Create your views here.
@@ -16,6 +17,13 @@ def index(request): # user의 요청
     lottos = GuessNumbers.objects.all()
 
     return render(request, 'lotto/default.html', {'lottos': lottos})
+
+
+def post(request):
+
+    form = PostForm()
+
+    return render(request, 'lotto/form.html', {'form': form})
 
 
 def hello(requset):
