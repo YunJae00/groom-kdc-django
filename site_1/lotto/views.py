@@ -59,6 +59,12 @@ def hello(requset):
     return HttpResponse("<h1 style='color:red;'>hello</h1>")
 
 
+def detail(request, lottokey):
+
+    lotto = GuessNumbers.objects.get(id=lottokey)
+
+    return render(request, 'lotto/detail.html', {'lotto': lotto})
+
 # # <input type='text' name='name'></input> user가 값을 입력하고 보내면 name으로 받아옴
 # user_input_name = request.POST['name']
 # user_input_text = request.POST['text']

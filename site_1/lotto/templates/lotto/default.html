@@ -19,11 +19,16 @@
 <body>
     <div class="page-header">
         <h1>Selected Lotto Numbers</h1>
+{#        url reversing url.py 에 있는 별명 name을 가지고 해줌#}
+        <a href="{% url 'new_lotto' %}">
+            <span class="glyphicon glyphicon-plus btn btn-default"></span>
+        </a>
+
     </div>
     <div class="container lotto">
 {#        key 값을 {{ 여기에 적어줌 }}#}
         {% for lotto in lottos %}
-            <h2>{{ lotto.text }}</h2>
+            <h2><a href="{% url 'detail' lottokey=lotto.id %}">{{ lotto.text }}</a></h2>
             <p>{{ lotto.updated_date }}</p>
             <p>{{  lotto.lottos | linebreaksbr }}</p>
         {% endfor %}
