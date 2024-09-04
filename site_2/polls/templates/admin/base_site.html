@@ -1,0 +1,20 @@
+{#이 파일이 나중에 admin 의 bast_site.html보다 우선이 됨#}
+{#(이유는 settings.py 에서 polls 앱이 admin 보다 위에 있어서 인식을 이거부터 함)#}
+
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}
+    Django Polls 관리자 페이지
+{% endblock %}
+
+{% block extrastyle %}
+    <link href="//fonts.googleapis.com/css?family=Do+Hyeon|Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/admin_custom.css' %}" />
+{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name"><a href="{% url 'admin:index' %}">Django Polls 관리자 페이지 (ver 1.0)</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
