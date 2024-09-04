@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # polls 가 위에 있어야 polls 앱의 template 파일들이 관지라 페이지의 기존 template 파일들보다 우선시되어 적용될 수 있음
     'polls',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -56,7 +57,8 @@ ROOT_URLCONF = 'site_2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 루트 디렉토리에 collectstatic 경로를 지정해줌 (나중에 여러 앱들의 templates 폴더들도 모이게 되는데 명시해주는거임)
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

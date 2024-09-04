@@ -1,19 +1,25 @@
-<h2>{{ question.question_text }}</h2>
+{% extends 'polls/base.html' %}
 
-{% if error_message %}
-    <p><strong>{{ error_message }}</strong></p>
-{% endif %}
+{% block  content %}
 
-<form action="{% url 'polls:vote' question_id=question.id %}" method="post">
-    {% csrf_token %}
-    {% for choice in question.choice_set.all %}
-{#        set.all() 아님#}
-{#        forloop.counter 는 for loop 에서 count 해서 올려주는거 choice1 , choice2, 이런식으로 #}
-{#        name 이 같아야 하나로 묶어주는거임#}
-{#        value 가 중요함#}
-        <input type="radio" name="choice_select" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
-        <br>
-    {% endfor %}
-    <input type="submit" value="Vote">
-</form>
+    <h2>{{ question.question_text }}</h2>
+
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+
+    <form action="{% url 'polls:vote' question_id=question.id %}" method="post">
+        {% csrf_token %}
+        {% for choice in question.choice_set.all %}
+            {#        set.all() 아님#}
+            {#        forloop.counter 는 for loop 에서 count 해서 올려주는거 choice1 , choice2, 이런식으로 #}
+            {#        name 이 같아야 하나로 묶어주는거임#}
+            {#        value 가 중요함#}
+            <input type="radio" name="choice_select" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+            <br>
+        {% endfor %}
+        <input type="submit" value="Vote">
+    </form>
+
+{% endblock %}
