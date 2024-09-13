@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # polls 가 위에 있어야 polls 앱의 template 파일들이 관지라 페이지의 기존 template 파일들보다 우선시되어 적용될 수 있음
+    # polls 가 위에 있어야 polls 앱의 templates 파일들이 관지라 페이지의 기존 templates 파일들보다 우선시되어 적용될 수 있음
     'polls',
     'django.contrib.admin',
     'django.contrib.auth',
