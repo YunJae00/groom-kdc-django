@@ -125,6 +125,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_RUL = 'media/'
 # 이거는 실질적으로 미디어 폴더가 어디 생겨날지 정해주는거
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT_RUL = '.'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

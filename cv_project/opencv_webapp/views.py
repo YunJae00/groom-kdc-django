@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .forms import SimpleUploadForm
+from .forms import SimpleUploadForm, ImageUploadForm
 
 # 파일 저장하기 위한 도구 db 있을 땐 이거 안씀
 from django.core.files.storage import FileSystemStorage
@@ -44,3 +44,9 @@ def simple_upload(request):
         form = SimpleUploadForm()
         context = {'form': form}
         return render(request, 'opencv_webapp/simple_upload.html', context)
+
+
+def detect_face(request):
+
+    form = ImageUploadForm()
+    return render(request,'opencv_webapp/detect_face.html', {'form': form} )

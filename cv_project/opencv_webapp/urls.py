@@ -10,6 +10,7 @@ app_name = 'opencv_webapp'
 urlpatterns = [
     path('', views.first_view, name='first_view'),
     path('simple_upload/', views.simple_upload, name='simple_upload'),
+    path('detect_face/', views.detect_face, name='detect_face'),
 ]
 
 # media 라는 폴더를 만들텐데 그 폴더에 올라갈 애들에 대해 url 세팅을 추가로 해줌
