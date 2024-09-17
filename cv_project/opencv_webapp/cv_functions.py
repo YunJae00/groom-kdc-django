@@ -9,6 +9,20 @@ def cv_detect_face(path): # path parameter를 통해 파일 경로를 받아들�
 
     if (type(img) is np.ndarray):
         print(img.shape) # 세로, 가로, 채널
+        resize_needed = False
+
+        if img.shape[1] > 640: # ex) 가로(img.shape[1])가 1280일 경우,
+            resize_needed = True
+            new_w = img.shape[1] * (640.0 / img.shape[1]) # 1280 * (640/1280) = 1280 * 0.5
+            new_h = img.shape[0] * (640.0 / img.shape[1]) # 기존 세로 * (640/1280) = 기존 세로 * 0.5
+        elif img.shape[0] > 480: # ex) 세로(img.shape[0])가 960일 경우,
+            resize_needed = True
+            new_w = img.shape[1] * (480.0 / img.shape[0]) # 기존 가로 * (480/960) = 기존 가로 * 0.5
+            new_h = img.shape[0] * (480.0 / img.shape[0]) # 960 * (480/960) = 960 * 0.5
+
+        if resize_needed == True:
+            img = cv2.resize(img, (int(new_w), int(new_h)))
+
         # Haar-based Cascade Classifier : AdaBoost 기반 머신러닝 물체 인식 모델
         # 이미지에서 눈, 얼굴 등의 부위를 찾는데 주로 이용
         # 이미 학습된 모델을 OpenCV 에서 제공 (http://j.mp/2qIxrxX)
