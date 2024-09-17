@@ -122,10 +122,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # 이거는 사용자가 이미지 파일을 올리면 여기로 들어오게 하는 파일
 # 이거는 url 상에서의 media
-MEDIA_RUL = 'media/'
+MEDIA_URL = 'media/'
 # 이거는 실질적으로 미디어 폴더가 어디 생겨날지 정해주는거
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_ROOT_RUL = '.'
+MEDIA_ROOT_URL = '.'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

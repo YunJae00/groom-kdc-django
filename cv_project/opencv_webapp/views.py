@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from .cv_functions import cv_detect_face
 from .forms import SimpleUploadForm, ImageUploadForm
 
 # 파일 저장하기 위한 도구 db 있을 땐 이거 안씀
@@ -66,7 +67,7 @@ def detect_face(request):
             # == post.document.url
             # == '/media/images/2021/10/29/ses_XQAftn4.jpg'
             # print(form.instance, form.instance.document.name, form.instance.document.url)
-            # cv_detect_face(settings.MEDIA_ROOT_URL + imageURL) # 추후 구현 예정
+            cv_detect_face(settings.MEDIA_ROOT_URL + imageURL)
 
             return render(request, 'opencv_webapp/detect_face.html', {'form':form, 'post':post})
     else:
