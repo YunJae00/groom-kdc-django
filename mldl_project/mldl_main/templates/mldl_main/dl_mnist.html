@@ -1,0 +1,15 @@
+
+<form action="{% url 'mldl_main:predict_mnist' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <label for="input_img">Please upload your image file</label>
+  <p>(<a href="https://i.imgur.com/Fq0blXC.jpg" target="_blank">Click to download an example image : 28x28x1</a>)</p>
+  <p>(<a href="https://i.imgur.com/Pg7oS4C.jpg" target="_blank">Click to download an example image : 500x500x3</a>)</p>
+
+  <input type="file" id="input_img" name="img_uploaded">
+
+  <button type="submit">Predict!</button>
+
+</form>
+
+<p><a href="{% url 'mldl_main:index' %}">Return to home</a></p>

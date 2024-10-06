@@ -1,0 +1,22 @@
+{% extends 'mldl_main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div style='text-align: center;'>
+  <h1 style=' margin-top: 5%; margin-bottom: 5%;'>
+    The latest news about <span class="predicted-class" style="color:black;">{{ search_keyword }}</span>
+  </h1>
+
+  {{ result_df_html | safe }}
+
+</div>
+
+<div style='text-align: center; margin-top:3em; margin-bottom:4em;'>
+  <p><a href="{% url 'mldl_main:crawl_simple' %}">Return to previous page</a></p>
+  <p><a href="{% url 'mldl_main:index' %}">Return to home</a></p>
+</div>
+
+
+{% endblock %}

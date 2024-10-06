@@ -1,0 +1,20 @@
+{% extends 'mldl_main/base.html' %}
+{% block content %}
+
+<div class="row" style="margin-top:10%;">
+  <div class="col-md-6">
+    <div class="jumbotron" style="background-color: black;">
+      <h1 style="color: white;">Hello, Django!</h1>
+      <p style="color: dimgray;">Various examples made with <br>Django/Scikit-learn/Tensorflow+@</p>
+      <p><a class="btn btn-default btn-lg" href="#" role="button">Get the source-code</a></p>
+    </div>
+  </div>
+
+  <div class="col-md-6" style="margin-top:2%;">
+    <p><a href="{% url 'mldl_main:crawl_simple' %}">Naver-news crawling</a></p>
+    <p><a href="{% url 'mldl_main:ml_iris' %}">iris prediction (Scikit-learn)</a></p>
+    <p><a href="{% url 'mldl_main:dl_mnist' %}">MNIST prediction (Tensorflow)</a></p>
+  </div>
+</div>
+
+{% endblock %}

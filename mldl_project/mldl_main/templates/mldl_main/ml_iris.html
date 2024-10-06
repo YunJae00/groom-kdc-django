@@ -1,0 +1,25 @@
+
+<form action="{% url 'mldl_main:predict_iris' %}" method="POST">
+  {% csrf_token %}
+
+  <label for="length_sepal">Sepal length (꽃받침의 길이, cm)</label>
+  <input type="text" id="length_sepal" name="sepal_length" placeholder="ex) 5.8">
+  <br>
+
+  <label for="width_sepal">Sepal width (꽃받침의 너비, cm)</label>
+  <input type="text" id="width_sepal" name="sepal_width" placeholder="ex) 2.8">
+  <br>
+
+  <label for="length_petal">Petal length (꽃잎의 길이, cm)</label>
+  <input type="text" id="length_petal" name="petal_length" placeholder="ex) 5.1">
+  <br>
+
+  <label for="width_petal">Petal width (꽃잎의 너비, cm)</label>
+  <input type="text" id="width_petal" name="petal_width" placeholder="ex) 2.4">
+  <br>
+
+  <button type="submit">Predict!</button>
+
+</form>
+
+<p><a href="{% url 'mldl_main:index' %}">Return to home</a></p>

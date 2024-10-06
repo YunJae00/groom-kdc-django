@@ -1,0 +1,42 @@
+{% extends 'mldl_main/base.html' %}
+{% block content %}
+
+
+<form action="{% url 'mldl_main:predict_iris' %}" method="POST" class="main-form">
+  {% csrf_token %}
+
+  <img src="https://www.cdn-iris.ca/wp-content/uploads/iris-flower-garden-1000x450.jpg" class="img-subject"/>
+
+  <div class="input-group input-group-lg" style="margin-bottom: 1%;">
+  <span class="input-group-addon" id="sizing-addon3" style='width:50%;'>Sepal length (꽃받침의 길이)</span>
+  <input type="text" name="sepal_length" class="form-control" placeholder="ex) 5.8" aria-describedby="sizing-addon3">
+  <span class="input-group-addon">cm</span>
+  </div>
+
+  <div class="input-group input-group-lg" style="margin-bottom: 1%;">
+  <span class="input-group-addon" id="sizing-addon3" style='width:50%;'>Sepal width (꽃받침의 너비)</span>
+  <input type="text" name="sepal_width" class="form-control" placeholder="ex) 2.8" aria-describedby="sizing-addon3">
+  <span class="input-group-addon">cm</span>
+  </div>
+
+  <div class="input-group input-group-lg" style="margin-bottom: 1%;">
+  <span class="input-group-addon" id="sizing-addon3" style='width:50%;'>Petal length (꽃잎의 길이)</span>
+  <input type="text" name="petal_length" class="form-control" placeholder="ex) 5.1" aria-describedby="sizing-addon3">
+  <span class="input-group-addon">cm</span>
+  </div>
+
+  <div class="input-group input-group-lg" style="margin-bottom: 1%;">
+  <span class="input-group-addon" id="sizing-addon3" style='width:50%;'>Petal width (꽃잎의 너비)</span>
+  <input type="text" name="petal_width" class="form-control" placeholder="ex) 2.4" aria-describedby="sizing-addon3">
+  <span class="input-group-addon">cm</span>
+  </div>
+
+  <button type="submit" class="btn btn-lg btn-info btn-confirm btn-submit">Predict!</button>
+
+</form>
+
+<div style='text-align: center; margin-top:3em; margin-bottom:4em;'>
+  <p><a href="{% url 'mldl_main:index' %}">Return to home</a></p>
+</div>
+
+{% endblock %}
